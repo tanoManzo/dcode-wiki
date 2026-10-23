@@ -154,7 +154,6 @@ async function init() {
   $("#search-results").addEventListener("click", () => $("#search-dialog").close());
   $("#search-dialog").addEventListener("click", (event) => { if (event.target === $("#search-dialog")) $("#search-dialog").close(); });
   document.addEventListener("keydown", (event) => { if (event.key === "/" && !["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) { event.preventDefault(); openSearch(); } });
-  $("#browse-resources").addEventListener("click", () => $("#resources").scrollIntoView({ behavior: "smooth" }));
   $("#menu-button").addEventListener("click", () => {
     const nav = $("#mobile-nav");
     nav.hidden = !nav.hidden;
