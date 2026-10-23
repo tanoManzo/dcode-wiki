@@ -1,0 +1,41 @@
+{
+  "meetings": [
+    {"date":"2026-10-28","presenter":"Di","type":"Journal Club","title":"Functional dissection of complex trait variants at single-nucleotide resolution","url":"https://www.nature.com/articles/s41586-026-10121-6"},
+    {"date":"2026-11-04","presenter":"TBD","type":"Progress Report","title":"Progress report"},
+    {"date":"2026-11-11","presenter":"Lab holiday","type":"No meeting","title":"Veterans Day"},
+    {"date":"2026-11-18","presenter":"Stas","type":"Journal Club","title":"Multiomics and deep learning dissect regulatory syntax in human development","url":"https://www.nature.com/articles/s41586-026-10326-9"},
+    {"date":"2026-11-25","presenter":"Gaetano","type":"Journal Club","title":"AlphaGenome Atlas: in silico mutagenesis of the entire human genome improves prioritization and interpretation of non-coding variants"},
+    {"date":"2026-12-02","presenter":"TBD","type":"Progress Report","title":"Progress report"},
+    {"date":"2026-12-09","presenter":"Jaya","type":"Journal Club","title":"Predictive design of tissue-specific mammalian enhancers that function in the mouse embryo","url":"https://www.nature.com/articles/s41588-026-02729-1"}
+  ],
+  "papers": [
+    {"title":"Spatiotemporal AI-based modeling of gene regulation and variant effects in the developing human brain using Seal","journal":"Nature Neuroscience","url":"https://www.nature.com/articles/s41593-026-02470-2"},
+    {"title":"The gene-regulatory evolution of the human skeleton","journal":"Nature","url":"http://nature.com/articles/s41586-026-11053-x"},
+    {"title":"A microexon regulatory code reveals autism-linked genetic variation","journal":"Nature","url":"https://www.nature.com/articles/s41586-026-11119-w"},
+    {"title":"Decoding 3D chromatin architecture reveals distinct enhancer classes underlying hierarchical gene regulation in prostate cancer","journal":"Genome Biology","url":"https://link.springer.com/article/10.1186/s13059-026-04178-9"},
+    {"title":"3D epigenome of glial cell types in developing human cortex","journal":"Nature","url":"https://www.nature.com/articles/s41586-026-10987-6"},
+    {"title":"Intrinsic promoter responsiveness dictates sensitivity to transcriptional activation by enhancers","journal":"bioRxiv","url":"https://www.biorxiv.org/content/10.64898/2026.06.25.734173v1"}
+  ],
+  "projectMeetings": [
+    {"time":"9:30 AM","person":"Stas"},{"time":"10:00 AM","person":"Di"},{"time":"10:30 AM","person":"Xandra"},{"time":"11:00 AM","person":"Jaya"},{"time":"11:30 AM","person":"Gaetano"}
+  ],
+  "people": [
+    {"name":"Di Huang","role":"Staff Scientist","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/DiHuang.png"},
+    {"name":"Jaya Srivastava","role":"Postdoctoral Fellow","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/jaya.jpg"},
+    {"name":"Gaetano Manzo","role":"Staff Scientist","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/gaetano.jpg"},
+    {"name":"Stas Listopad","role":"Postdoctoral Fellow","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/person.jpg"},
+    {"name":"Xandra Richey","role":"Postdoctoral Fellow","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/person.jpg"},
+    {"name":"Yash Maheshwaran","role":"Predoctoral Fellow","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/person.jpg"},
+    {"name":"Ivan Tarbeev","role":"Postbaccalaureate Fellow","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/person.jpg"},
+    {"name":"Elline Krim","role":"Graduate Student","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/person.jpg"},
+    {"name":"Ivan Ovcharenko","role":"Principal Investigator","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/ivan_ovcharenko.jpg"}
+  ],
+  "resources": [
+    {"title":"Tools & libraries","description":"Software, packages, and useful utilities","icon":"terminal","url":"https://www.dcode.org/wiki/?n=Main.Programs"},
+    {"title":"Databases","description":"Genomics datasets and reference collections","icon":"database","url":"https://www.dcode.org/wiki/?n=Main.Databases"},
+    {"title":"Deep learning","description":"Models, tutorials, and shared workflows","icon":"network","url":"https://www.dcode.org/wiki/?n=Main.DeepLearning"},
+    {"title":"Biowulf","description":"NIH HPC guides and lab conventions","icon":"server","url":"https://www.dcode.org/wiki/?n=Main.Biowulf"},
+    {"title":"Visualization","description":"Plotting and genome-browser resources","icon":"chart","url":"https://www.dcode.org/wiki/?n=Main.Visualization"},
+    {"title":"How to","description":"Practical notes and lab procedures","icon":"book","url":"https://www.dcode.org/wiki/?n=Main.HowTo"}
+  ]
+}

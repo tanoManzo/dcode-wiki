@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ovcharenko Group internal knowledge hub and meeting schedule." />
+    <title>Ovcharenko Group Wiki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="Ovcharenko Group Wiki home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 44 44" role="img"><path d="M8 11c7-6 21-6 28 0M8 33c7 6 21 6 28 0M12 7c-6 8-6 22 0 30M32 7c6 8 6 22 0 30M7 17h30M7 27h30M17 7v30M27 7v30" /></svg>
+          </span>
+          <span><strong>Ovcharenko Group</strong></span>
+        </a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a class="active" href="#meetings">Meetings</a>
+          <a href="#papers">Papers</a>
+          <a href="#resources">Resources</a>
+          <a href="#people">People</a>
+        </nav>
+        <div class="top-actions">
+          <button class="search-trigger" id="search-trigger" type="button" aria-label="Search the wiki">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+            <span>Search</span><kbd>/</kbd>
+          </button>
+          <a class="edit-button" href="admin/">Edit wiki</a>
+          <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </header>
+
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+        <a href="#meetings">Meetings</a><a href="#papers">Papers</a><a href="#resources">Resources</a><a href="#people">People</a>
+      </nav>
+
+      <main id="main">
+        <section class="hero" id="top">
+          <div class="hero-copy">
+            <span class="eyebrow"><span></span> Ovcharenko Group · NLM / NIH</span>
+            <h1>Meetings, papers<br />&amp; shared notes.</h1>
+            <p>A simple home for the things our lab uses every week.</p>
+            <div class="hero-links">
+              <a class="primary-button" href="#meetings">See the schedule <span aria-hidden="true">↓</span></a>
+              <button class="text-button" id="browse-resources" type="button">Browse resources <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+          <aside class="next-card" aria-labelledby="next-meeting-title">
+            <div class="next-card-top">
+              <span class="live-dot"></span>
+              <span>Next group meeting</span>
+              <span class="date-chip" id="next-date-chip">OCT 28</span>
+            </div>
+            <div class="next-card-body">
+              <p class="meeting-time">Wednesday · 10:00 AM</p>
+              <h2 id="next-meeting-title">Journal Club</h2>
+              <p class="paper-title" id="next-paper-title">Functional dissection of complex trait variants at single-nucleotide resolution</p>
+              <div class="presenter-row">
+                <span class="avatar">DH</span>
+                <div><small>Presented by</small><strong id="next-presenter">Di</strong></div>
+              </div>
+            </div>
+            <div class="next-card-footer">
+              <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5 7-12a7 7 0 1 0-14 0c0 7 7 12 7 12Z"/><circle cx="12" cy="9" r="2.2"/></svg>6th floor conference room</span>
+            </div>
+          </aside>
+          <div class="ambient-grid" aria-hidden="true"></div>
+        </section>
+
+        <section class="quick-links" aria-label="Quick links">
+          <a href="#papers"><span class="quick-icon coral">01</span><span><strong>Paper queue</strong><small>Topics for upcoming journal clubs</small></span><b>→</b></a>
+          <a href="#project-meetings"><span class="quick-icon blue">02</span><span><strong>1:1 schedule</strong><small>Monday project discussions</small></span><b>→</b></a>
+          <a href="#resources"><span class="quick-icon green">03</span><span><strong>Lab resources</strong><small>Tools, databases, and how-tos</small></span><b>→</b></a>
+        </section>
+
+        <section class="content-section meetings-section" id="meetings">
+          <div class="section-heading">
+            <div><span class="section-kicker">Group meetings</span><h2>Upcoming schedule</h2></div>
+            <p>Wednesdays at 10:00 AM<br />6th floor conference room</p>
+          </div>
+          <div class="meeting-list" id="meeting-list" aria-live="polite"></div>
+          <button class="show-all" id="show-all-meetings" type="button">Show full schedule <span>↓</span></button>
+        </section>
+
+        <section class="content-section papers-section" id="papers">
+          <div class="section-heading light">
+            <div><span class="section-kicker">Reading list</span><h2>Papers to present</h2></div>
+            <p>Ideas for future journal clubs.<br />Pick one and add your name.</p>
+          </div>
+          <div class="paper-grid" id="paper-grid"></div>
+        </section>
+
+        <section class="content-section split-section" id="project-meetings">
+          <div class="project-panel">
+            <span class="section-kicker">Project discussions</span>
+            <h2>Monday meetings</h2>
+            <p>Weekly one-on-one research discussions.</p>
+            <div class="project-list" id="project-list"></div>
+          </div>
+          <div class="people-panel" id="people">
+            <div class="people-heading"><div><span class="section-kicker">The group</span><h2>Lab members</h2></div><a href="https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/group_members.shtml">Group page ↗</a></div>
+            <div class="people-grid" id="people-grid"></div>
+          </div>
+        </section>
+
+        <section class="content-section resources-section" id="resources">
+          <div class="section-heading">
+            <div><span class="section-kicker">Knowledge base</span><h2>Explore resources</h2></div>
+            <p>Frequently used references collected<br />by and for the group.</p>
+          </div>
+          <div class="resource-grid" id="resource-grid"></div>
+        </section>
+
+        <section class="acknowledgement">
+          <button type="button" id="ack-toggle" aria-expanded="false" aria-controls="ack-text">
+            <span><strong>NIH acknowledgement</strong><small>Standard publication language</small></span><span aria-hidden="true">+</span>
+          </button>
+          <p id="ack-text" hidden>This research was supported [in part] by the Intramural Research Program of the National Institutes of Health (NIH). The contributions of the NIH author(s) are considered Works of the United States Government. The findings and conclusions presented in this paper are those of the author(s) and do not necessarily reflect the views of the NIH or the U.S. Department of Health and Human Services.</p>
+        </section>
+      </main>
+
+      <footer>
+        <div class="brand footer-brand"><span class="brand-mark" aria-hidden="true">O</span><span><strong>Ovcharenko Group</strong><small>National Library of Medicine · NIH</small></span></div>
+        <p>Built for the lab · <span id="year"></span></p>
+      </footer>
+    </div>
+
+    <dialog class="search-dialog" id="search-dialog">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+        <input id="search-input" type="search" placeholder="Search meetings, papers, people, resources…" autocomplete="off" />
+        <button id="search-close" type="button" aria-label="Close search">×</button>
+      </div>
+      <div class="search-results" id="search-results"><p>Start typing to search across the wiki.</p></div>
+    </dialog>
+    <script src="app.js" defer></script>
+  </body>
+</html>
