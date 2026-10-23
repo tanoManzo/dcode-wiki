@@ -31,10 +31,11 @@ function renderMeetings() {
   const meetingRows = (rows, isPast = false) => rows.map((meeting) => {
     const date = formatDate(meeting.date);
     const link = meeting.url ? `<a class="meeting-link" href="${meeting.url}" target="_blank" rel="noopener" aria-label="Open paper">↗</a>` : `<span></span>`;
+    const showTitle = meeting.title && meeting.title.trim().toLowerCase() !== meeting.type.trim().toLowerCase();
     return `<article class="meeting-row${isPast ? " is-past" : ""}">
       <div class="date-block"><strong>${date.short}</strong><small>${date.day}</small></div>
       <div class="meeting-person">${meeting.presenter}</div>
-      <div class="meeting-info"><small>${isPast ? "Past · " : ""}${meeting.type}</small><p>${meeting.title}</p></div>${link}
+      <div class="meeting-info"><small>${isPast ? "Past · " : ""}${meeting.type}</small>${showTitle ? `<p>${meeting.title}</p>` : ""}</div>${link}
     </article>`;
   }).join("");
 
@@ -61,6 +62,7 @@ function renderNextMeeting() {
     $("#next-paper-title").textContent = "Add the next meeting in the wiki editor.";
     $("#next-presenter").textContent = "—";
     $("#next-avatar").textContent = "—";
+    $("#next-location-footer").hidden = true;
     return;
   }
 
@@ -73,10 +75,15 @@ function renderNextMeeting() {
     .toUpperCase();
   $("#next-date-chip").textContent = formatDate(next.date).chip;
   $("#next-meeting-time").textContent = `${formatDate(next.date).day} · 10:00 AM`;
-  $("#next-paper-title").textContent = next.title;
+  const showTitle = next.title && next.title.trim().toLowerCase() !== next.type.trim().toLowerCase();
+  $("#next-paper-title").textContent = showTitle ? next.title : "";
+  $("#next-paper-title").hidden = !showTitle;
   $("#next-presenter").textContent = next.presenter;
   $("#next-meeting-title").textContent = next.type;
   $("#next-avatar").textContent = initials || "—";
+  const hasLocation = next.type.toLowerCase() !== "no meeting";
+  $("#next-location-footer").hidden = !hasLocation;
+  $("#next-location").textContent = next.location || "6th floor conference room";
 }
 
 function render() {
