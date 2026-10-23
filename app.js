@@ -5,6 +5,12 @@ const icons = { terminal: "⌘", database: "▤", network: "◇", server: "▥",
 let content = { meetings: [], papers: [], projectMeetings: [], people: [], resources: [] };
 let showingAll = false;
 
+const localISODate = () => {
+  const now = new Date();
+  const offset = now.getTimezoneOffset() * 60_000;
+  return new Date(now.getTime() - offset).toISOString().slice(0, 10);
+};
+
 const formatDate = (iso) => {
   const date = new Date(`${iso}T12:00:00`);
   return {
@@ -15,17 +21,62 @@ const formatDate = (iso) => {
 };
 
 function renderMeetings() {
-  const rows = showingAll ? content.meetings : content.meetings.slice(0, 4);
-  $("#meeting-list").innerHTML = rows.map((meeting) => {
+  const today = localISODate();
+  const sorted = [...content.meetings].sort((a, b) => a.date.localeCompare(b.date));
+  const upcoming = sorted.filter((meeting) => meeting.date >= today);
+  const past = sorted.filter((meeting) => meeting.date < today).reverse();
+  const visibleUpcoming = showingAll ? upcoming : upcoming.slice(0, 4);
+  const visiblePast = showingAll ? past : past.slice(0, 2);
+
+  const meetingRows = (rows, isPast = false) => rows.map((meeting) => {
     const date = formatDate(meeting.date);
     const link = meeting.url ? `<a class="meeting-link" href="${meeting.url}" target="_blank" rel="noopener" aria-label="Open paper">↗</a>` : `<span></span>`;
-    return `<article class="meeting-row">
+    return `<article class="meeting-row${isPast ? " is-past" : ""}">
       <div class="date-block"><strong>${date.short}</strong><small>${date.day}</small></div>
       <div class="meeting-person">${meeting.presenter}</div>
-      <div class="meeting-info"><small>${meeting.type}</small><p>${meeting.title}</p></div>${link}
+      <div class="meeting-info"><small>${isPast ? "Past · " : ""}${meeting.type}</small><p>${meeting.title}</p></div>${link}
     </article>`;
   }).join("");
+
+  const upcomingMarkup = visibleUpcoming.length
+    ? meetingRows(visibleUpcoming)
+    : `<div class="empty-schedule">No upcoming meetings are scheduled yet.</div>`;
+  const pastMarkup = visiblePast.length
+    ? `<div class="schedule-divider"><span>Past meetings</span></div>${meetingRows(visiblePast, true)}`
+    : "";
+  $("#meeting-list").innerHTML = upcomingMarkup + pastMarkup;
   $("#show-all-meetings").innerHTML = showingAll ? "Show fewer <span>↑</span>" : "Show full schedule <span>↓</span>";
+}
+
+function renderNextMeeting() {
+  const today = localISODate();
+  const next = [...content.meetings]
+    .sort((a, b) => a.date.localeCompare(b.date))
+    .find((meeting) => meeting.date >= today);
+
+  if (!next) {
+    $("#next-date-chip").textContent = "TBD";
+    $("#next-meeting-time").textContent = "New schedule coming soon";
+    $("#next-meeting-title").textContent = "Nothing scheduled";
+    $("#next-paper-title").textContent = "Add the next meeting in the wiki editor.";
+    $("#next-presenter").textContent = "—";
+    $("#next-avatar").textContent = "—";
+    return;
+  }
+
+  const initials = next.presenter
+    .split(/[\s&]+/)
+    .filter(Boolean)
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+  $("#next-date-chip").textContent = formatDate(next.date).chip;
+  $("#next-meeting-time").textContent = `${formatDate(next.date).day} · 10:00 AM`;
+  $("#next-paper-title").textContent = next.title;
+  $("#next-presenter").textContent = next.presenter;
+  $("#next-meeting-title").textContent = next.type;
+  $("#next-avatar").textContent = initials || "—";
 }
 
 function render() {
@@ -41,13 +92,7 @@ function render() {
   }).join("");
   $("#resource-grid").innerHTML = content.resources.map((resource) => `<a class="resource-card" href="${resource.url}" target="_blank" rel="noopener"><b>${icons[resource.icon] || "•"}</b><h3>${resource.title} ↗</h3><p>${resource.description}</p></a>`).join("");
 
-  if (content.meetings[0]) {
-    const next = content.meetings[0];
-    $("#next-date-chip").textContent = formatDate(next.date).chip;
-    $("#next-paper-title").textContent = next.title;
-    $("#next-presenter").textContent = next.presenter;
-    $("#next-meeting-title").textContent = next.type;
-  }
+  renderNextMeeting();
 }
 
 function openSearch() {

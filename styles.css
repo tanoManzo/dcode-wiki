@@ -90,7 +90,14 @@ kbd { padding: 1px 6px; background: #e5e4dc; border: 1px solid #d3d3ca; border-r
 .section-heading > p { margin: 0; color: var(--ink-soft); font-size: 13px; text-align: right; }
 .meeting-list { border-top: 1px solid var(--ink); }
 .meeting-row { display: grid; grid-template-columns: 115px 140px 1fr 34px; gap: 20px; align-items: center; min-height: 95px; padding: 14px 6px; border-bottom: 1px solid var(--line); }
-.meeting-row.is-past { opacity: .55; }
+.meeting-row.is-past { position: relative; opacity: .68; background: rgba(16,40,38,.035); color: #687673; }
+.meeting-row.is-past .date-block strong { color: #7e8986; }
+.meeting-row.is-past .meeting-info small { color: #89918f; }
+.meeting-row.is-past .meeting-link { background: var(--paper); }
+.schedule-divider { padding: 31px 6px 10px; border-bottom: 1px solid var(--line); }
+.schedule-divider span { display: inline-flex; align-items: center; gap: 8px; color: #89918f; font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.schedule-divider span::before { content: ""; width: 18px; height: 1px; background: #abb3b0; }
+.empty-schedule { padding: 28px 6px; border-bottom: 1px solid var(--line); color: var(--ink-soft); font-size: 13px; }
 .date-block strong, .date-block small { display: block; }.date-block strong { font: 800 23px Manrope; }.date-block small { color: var(--ink-soft); font-size: 10px; text-transform: uppercase; letter-spacing: .1em; }
 .meeting-person { font-weight: 700; font-size: 14px; }
 .meeting-info small { color: var(--green); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; font-weight: 800; }

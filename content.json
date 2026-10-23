@@ -1,5 +1,10 @@
 {
   "meetings": [
+    {"date":"2026-09-23","presenter":"Xandra","type":"Journal Club","title":"An expanded codebook of human transcription factor DNA-binding specificity"},
+    {"date":"2026-09-30","presenter":"Yash","type":"Progress Report","title":"Progress report"},
+    {"date":"2026-10-07","presenter":"Everyone","type":"Lab Discussion","title":"Claude Science: Manuscripts"},
+    {"date":"2026-10-14","presenter":"—","type":"No meeting","title":"No meeting scheduled"},
+    {"date":"2026-10-21","presenter":"Yash & Ivan T.","type":"Progress Report & Journal Club","title":"Editing GWAS: experimental approaches to dissect and exploit disease-associated genetic variation","url":"https://link.springer.com/article/10.1186/s13073-021-00857-3"},
     {"date":"2026-10-28","presenter":"Di","type":"Journal Club","title":"Functional dissection of complex trait variants at single-nucleotide resolution","url":"https://www.nature.com/articles/s41586-026-10121-6"},
     {"date":"2026-11-04","presenter":"TBD","type":"Progress Report","title":"Progress report"},
     {"date":"2026-11-11","presenter":"Lab holiday","type":"No meeting","title":"Veterans Day"},
