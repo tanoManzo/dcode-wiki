@@ -126,9 +126,27 @@ async function init() {
 
   $("#year").textContent = new Date().getFullYear();
   const topbar = $(".topbar");
-  const updateTopbar = () => topbar.classList.toggle("scrolled", window.scrollY > 8);
-  updateTopbar();
-  window.addEventListener("scroll", updateTopbar, { passive: true });
+  const desktopNavLinks = $$(".desktop-nav a");
+  const trackedSections = desktopNavLinks
+    .map((link) => ({ link, section: $(link.getAttribute("href")) }))
+    .filter((item) => item.section);
+  let navigationFrame;
+  const updateNavigation = () => {
+    topbar.classList.toggle("scrolled", window.scrollY > 8);
+    const marker = topbar.offsetHeight + 110;
+    let current = trackedSections[0];
+    trackedSections.forEach((item) => {
+      if (item.section.getBoundingClientRect().top <= marker) current = item;
+    });
+    desktopNavLinks.forEach((link) => link.classList.toggle("active", link === current.link));
+  };
+  const requestNavigationUpdate = () => {
+    if (navigationFrame) return;
+    navigationFrame = requestAnimationFrame(() => { updateNavigation(); navigationFrame = null; });
+  };
+  updateNavigation();
+  window.addEventListener("scroll", requestNavigationUpdate, { passive: true });
+  window.addEventListener("resize", requestNavigationUpdate);
   $("#show-all-meetings").addEventListener("click", () => { showingAll = !showingAll; renderMeetings(); });
   $("#search-trigger").addEventListener("click", openSearch);
   $("#search-close").addEventListener("click", () => $("#search-dialog").close());
