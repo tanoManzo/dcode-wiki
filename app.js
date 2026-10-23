@@ -115,7 +115,7 @@ function search(query) {
 
 async function init() {
   try {
-    const response = await fetch("content.json");
+    const response = await fetch(`content.json?v=${Date.now()}`, { cache: "no-store" });
     if (!response.ok) throw new Error("Content could not be loaded");
     content = await response.json();
     render();
