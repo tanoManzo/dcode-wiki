@@ -125,6 +125,10 @@ async function init() {
   }
 
   $("#year").textContent = new Date().getFullYear();
+  const topbar = $(".topbar");
+  const updateTopbar = () => topbar.classList.toggle("scrolled", window.scrollY > 8);
+  updateTopbar();
+  window.addEventListener("scroll", updateTopbar, { passive: true });
   $("#show-all-meetings").addEventListener("click", () => { showingAll = !showingAll; renderMeetings(); });
   $("#search-trigger").addEventListener("click", openSearch);
   $("#search-close").addEventListener("click", () => $("#search-dialog").close());
