@@ -8,7 +8,7 @@
     {"date":"2026-10-28","presenter":"Di","type":"Journal Club","title":"Functional dissection of complex trait variants at single-nucleotide resolution","url":"https://www.nature.com/articles/s41586-026-10121-6"},
     {"date":"2026-11-02","presenter":"Jaya","type":"Progress Report","title":"Progress report","location":"8th-floor conference room"},
     {"date":"2026-11-11","presenter":"Lab holiday","type":"No meeting","title":"Veterans Day"},
-    {"date":"2026-11-16","presenter":"Stas","type":"Journal Club","title":"Multiomics and deep learning dissect regulatory syntax in human development","url":"https://www.nature.com/articles/s41586-026-10326-9","location":"8th-floor conference room"},
+    {"date":"2026-11-16","presenter":"Stanislav","type":"Journal Club","title":"Multiomics and deep learning dissect regulatory syntax in human development","url":"https://www.nature.com/articles/s41586-026-10326-9","location":"8th-floor conference room"},
     {"date":"2026-11-23","presenter":"Gaetano","type":"Journal Club","title":"AlphaGenome Atlas: in silico mutagenesis of the entire human genome improves prioritization and interpretation of non-coding variants","location":"8th-floor conference room"},
     {"date":"2026-11-30","presenter":"TBD","type":"Progress Report","title":"Progress report","location":"8th-floor conference room"},
     {"date":"2026-12-07","presenter":"Jaya","type":"Journal Club","title":"Predictive design of tissue-specific mammalian enhancers that function in the mouse embryo","url":"https://www.nature.com/articles/s41588-026-02729-1","location":"8th-floor conference room"}
@@ -22,13 +22,13 @@
     {"title":"Intrinsic promoter responsiveness dictates sensitivity to transcriptional activation by enhancers","journal":"bioRxiv","url":"https://www.biorxiv.org/content/10.64898/2026.06.25.734173v1"}
   ],
   "projectMeetings": [
-    {"time":"9:30 AM","person":"Stas"},{"time":"10:00 AM","person":"Di"},{"time":"10:30 AM","person":"Alexandra"},{"time":"11:00 AM","person":"Jaya"},{"time":"11:30 AM","person":"Gaetano"}
+    {"time":"9:30 AM","person":"Stanislav"},{"time":"10:00 AM","person":"Di"},{"time":"10:30 AM","person":"Alexandra"},{"time":"11:00 AM","person":"Jaya"},{"time":"11:30 AM","person":"Gaetano"}
   ],
   "people": [
     {"name":"Di Huang","role":"Staff Scientist","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/DiHuang.png"},
     {"name":"Jaya Srivastava","role":"Postdoctoral Fellow","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/jaya.jpg"},
     {"name":"Gaetano Manzo","role":"Staff Scientist","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/gaetano.jpg"},
-    {"name":"Stas Listopad","role":"Postdoctoral Fellow","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/person.jpg"},
+    {"name":"Stanislav Listopad","role":"Postdoctoral Fellow","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/person.jpg"},
     {"name":"Alexandra Richey","role":"Postdoctoral Fellow","photo":"assets/alexandra-richey.png"},
     {"name":"Yash Maheshwaran","role":"Predoctoral Fellow","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/person.jpg"},
     {"name":"Ivan Tarbeev","role":"Postbaccalaureate Fellow","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/person.jpg"},
