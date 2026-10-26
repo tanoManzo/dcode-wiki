@@ -3,6 +3,39 @@ let papers = [];
 
 const escapeHTML = (value) => String(value).replace(/[&<>"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[character]);
 const paperYear = (paper) => paper.date.split("/").at(-1);
+const normalize = (value) => String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+const localISODate = () => {
+  const now = new Date();
+  const offset = now.getTimezoneOffset() * 60_000;
+  return new Date(now.getTime() - offset).toISOString().slice(0, 10);
+};
+const archiveDateKey = (paper) => {
+  const parts = paper.date.split("/").map(Number);
+  const [month, day, year] = parts.length === 3 ? parts : [parts[0], 1, parts[1]];
+  return year * 10_000 + month * 100 + day;
+};
+
+function addPastJournalClubs(archive, meetings) {
+  const today = localISODate();
+  const knownUrls = new Set(archive.map((paper) => paper.url?.replace(/\/$/, "").toLowerCase()).filter(Boolean));
+  const knownCitations = archive.map((paper) => normalize(paper.citation));
+  const additions = meetings.filter((meeting) => {
+    if (meeting.date >= today || !meeting.type?.toLowerCase().includes("journal club") || !meeting.title) return false;
+    const url = meeting.url?.replace(/\/$/, "").toLowerCase();
+    const title = normalize(meeting.title);
+    return !(url && knownUrls.has(url)) && !knownCitations.some((citation) => citation.includes(title));
+  }).map((meeting) => {
+    const [year, month, day] = meeting.date.split("-").map(Number);
+    return {
+      date: `${month}/${day}/${year}`,
+      presenter: meeting.presenter || "—",
+      citation: meeting.title,
+      url: meeting.url || "",
+      automatic: true
+    };
+  });
+  return [...archive, ...additions].sort((a, b) => archiveDateKey(b) - archiveDateKey(a));
+}
 
 function fillFilters() {
   const years = [...new Set(papers.map(paperYear))].sort((a, b) => Number(b) - Number(a));
@@ -44,9 +77,15 @@ function render() {
 
 async function init() {
   try {
-    const response = await fetch(`journal-club-papers.json?v=${Date.now()}`, { cache: "no-store" });
-    if (!response.ok) throw new Error("Archive could not be loaded");
-    papers = await response.json();
+    const cacheKey = Date.now();
+    const [archiveResponse, contentResponse] = await Promise.all([
+      fetch(`journal-club-papers.json?v=${cacheKey}`, { cache: "no-store" }),
+      fetch(`content.json?v=${cacheKey}`, { cache: "no-store" })
+    ]);
+    if (!archiveResponse.ok) throw new Error("Archive could not be loaded");
+    const archive = await archiveResponse.json();
+    const schedule = contentResponse.ok ? await contentResponse.json() : { meetings: [] };
+    papers = addPastJournalClubs(archive, schedule.meetings || []);
     fillFilters();
     render();
   } catch (error) {
