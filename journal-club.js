@@ -63,10 +63,10 @@ function render() {
     previousYear = yearLabel;
     const link = paper.url ? `<a class="archive-row-link" href="${escapeHTML(paper.url)}" target="_blank" rel="noopener" aria-label="Open paper">↗</a>` : `<span></span>`;
     const dateParts = paper.date.split("/");
-    const [month, day] = dateParts;
-    const dateLabel = `${monthNames[Number(month)] || month}${dateParts.length === 3 ? ` ${Number(day)}` : ""}`;
+    const [month] = dateParts;
+    const dateLabel = monthNames[Number(month)] || month;
     return `${divider}<article class="archive-row${paper.automatic ? " is-automatic" : ""}">
-      <div class="archive-date"><strong>${escapeHTML(dateLabel)}</strong><small>${paper.automatic ? "From schedule" : "Archive"}</small></div>
+      <div class="archive-date"><strong>${escapeHTML(dateLabel)}</strong></div>
       <span class="presenter-chip">${escapeHTML(paper.presenter)}</span>
       <p class="archive-citation">${escapeHTML(paper.citation)}</p>${link}
     </article>`;
