@@ -3,6 +3,7 @@ let papers = [];
 
 const escapeHTML = (value) => String(value).replace(/[&<>"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[character]);
 const paperYear = (paper) => paper.date.split("/").at(-1);
+const monthNames = ["", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 const normalize = (value) => String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 const localISODate = () => {
   const now = new Date();
@@ -61,11 +62,11 @@ function render() {
     const divider = yearLabel !== previousYear ? `<div class="archive-year-divider">${paper.legacy ? "Legacy archive · " : ""}${yearLabel}</div>` : "";
     previousYear = yearLabel;
     const link = paper.url ? `<a class="archive-row-link" href="${escapeHTML(paper.url)}" target="_blank" rel="noopener" aria-label="Open paper">↗</a>` : `<span></span>`;
-    const [month, day] = paper.date.split("/");
-    const dateLabel = paper.date.split("/").length === 3 ? `${month}/${day}` : month;
-    const dateUnit = paper.date.split("/").length === 3 ? "date" : "month";
-    return `${divider}<article class="archive-row">
-      <div class="archive-date"><strong>${escapeHTML(dateLabel)}</strong><small>${dateUnit}</small></div>
+    const dateParts = paper.date.split("/");
+    const [month, day] = dateParts;
+    const dateLabel = `${monthNames[Number(month)] || month}${dateParts.length === 3 ? ` ${Number(day)}` : ""}`;
+    return `${divider}<article class="archive-row${paper.automatic ? " is-automatic" : ""}">
+      <div class="archive-date"><strong>${escapeHTML(dateLabel)}</strong><small>${paper.automatic ? "From schedule" : "Archive"}</small></div>
       <span class="presenter-chip">${escapeHTML(paper.presenter)}</span>
       <p class="archive-citation">${escapeHTML(paper.citation)}</p>${link}
     </article>`;

@@ -22,9 +22,11 @@
 .archive-list { border-top: 1px solid var(--ink); }
 .archive-row { display: grid; grid-template-columns: 100px 120px 1fr 34px; gap: 22px; align-items: center; min-height: 104px; padding: 17px 5px; border-bottom: 1px solid var(--line); transition: background .2s; }
 .archive-row:hover { background: rgba(255,254,250,.7); }
+.archive-row.is-automatic { background: rgba(217,238,231,.28); }
+.archive-row.is-automatic:hover { background: rgba(217,238,231,.5); }
 .archive-date strong, .archive-date small { display: block; }
 .archive-date strong { font: 800 16px Manrope; }
-.archive-date small { color: var(--ink-soft); font-size: 9px; letter-spacing: .09em; text-transform: uppercase; }
+.archive-date small { color: var(--ink-soft); font-size: 8px; letter-spacing: .08em; text-transform: uppercase; }
 .presenter-chip { justify-self: start; padding: 5px 9px; border-radius: 999px; color: var(--green-dark); background: var(--mint); font-size: 10px; font-weight: 800; }
 .archive-citation { margin: 0; font-size: 14px; line-height: 1.5; }
 .archive-row-link { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--green); font-weight: 800; }
