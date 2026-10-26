@@ -33,7 +33,7 @@
     {"name":"Yash Maheshwaran","role":"Predoctoral Fellow","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/person.jpg"},
     {"name":"Ivan Tarbeev","role":"Postbaccalaureate Fellow","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/person.jpg"},
     {"name":"Elline Krim","role":"Graduate Student","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/person.jpg"},
-    {"name":"Ivan Ovcharenko","role":"Principal Investigator","photo":"assets/ivan-ovcharenko.png"}
+    {"name":"Ivan Ovcharenko","role":"Principal Investigator","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/ivan_ovcharenko.jpg"}
   ],
   "resources": [
     {"title":"Tools & libraries","description":"Software, packages, and useful utilities","icon":"terminal","url":"https://www.dcode.org/wiki/?n=Main.Programs"},
