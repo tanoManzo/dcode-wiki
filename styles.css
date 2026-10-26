@@ -107,6 +107,8 @@ kbd { padding: 1px 6px; background: #e5e4dc; border: 1px solid #d3d3ca; border-r
 
 .papers-section { max-width: none; padding-left: max(34px, calc((100vw - 1172px) / 2)); padding-right: max(34px, calc((100vw - 1172px) / 2)); background: var(--ink); color: white; }
 .section-heading.light > p { color: #9cafac; }.section-heading.light h2 { color: white; }
+.archive-link { display: inline-block; margin-top: 10px; color: #d1e8e3; font-weight: 700; }
+.archive-link:hover { color: white; }
 .paper-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .paper-card { min-height: 245px; padding: 23px; display: flex; flex-direction: column; border: 1px solid #39504e; border-radius: 14px; background: #183432; transition: .25s; }
 .paper-card:hover { transform: translateY(-4px); border-color: #658b85; background: #1b3d3a; }

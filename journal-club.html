@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ovcharenko Group journal club paper archive." />
+    <title>Journal Club Archive · Ovcharenko Group</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=9" />
+    <link rel="stylesheet" href="journal-club.css?v=1" />
+  </head>
+  <body>
+    <a class="skip-link" href="#archive">Skip to archive</a>
+    <div class="site-shell">
+      <header class="topbar scrolled">
+        <a class="brand" href="./" aria-label="Ovcharenko Group Wiki home">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 44 44"><path d="M8 11c7-6 21-6 28 0M8 33c7 6 21 6 28 0M12 7c-6 8-6 22 0 30M32 7c6 8 6 22 0 30M7 17h30M7 27h30M17 7v30M27 7v30" /></svg></span>
+          <span><strong>Ovcharenko Group</strong></span>
+        </a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="./#meetings">Meetings</a><a class="active" href="./#papers">Papers</a><a href="./#people">People</a><a href="./#resources">Resources</a>
+        </nav>
+        <div class="top-actions"><a class="edit-button" href="admin/">Edit wiki</a></div>
+      </header>
+
+      <main id="archive">
+        <section class="archive-hero">
+          <div>
+            <a class="archive-back" href="./#papers">← Back to papers</a>
+            <span class="eyebrow"><span></span> Journal club</span>
+            <h1>Paper archive.</h1>
+            <p>A searchable history of papers discussed by the lab, migrated from the original group wiki.</p>
+          </div>
+          <div class="archive-stats" aria-label="Archive summary">
+            <div><strong id="paper-total">45</strong><span>entries</span></div>
+            <div><strong id="year-total">6</strong><span>years</span></div>
+          </div>
+        </section>
+
+        <section class="archive-section">
+          <div class="archive-toolbar" aria-label="Archive filters">
+            <label class="archive-search"><span>Search</span><input id="archive-search" type="search" placeholder="Title, author, journal…" autocomplete="off" /></label>
+            <label><span>Year</span><select id="year-filter"><option value="">All years</option></select></label>
+            <label><span>Presenter</span><select id="presenter-filter"><option value="">All presenters</option></select></label>
+          </div>
+          <div class="archive-meta"><p id="result-count" aria-live="polite"></p><button id="clear-filters" type="button">Clear filters</button></div>
+          <div class="archive-list" id="archive-list"></div>
+          <div class="archive-empty" id="archive-empty" hidden><strong>No papers found.</strong><span>Try a broader search or clear the filters.</span></div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="brand footer-brand"><span class="brand-mark" aria-hidden="true">O</span><span><strong>Ovcharenko Group</strong><small>National Library of Medicine · NIH</small></span></div>
+        <p>Journal club archive · <span id="year"></span></p>
+      </footer>
+    </div>
+    <script src="journal-club.js?v=1" defer></script>
+  </body>
+</html>
