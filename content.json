@@ -1,6 +1,6 @@
 {
   "meetings": [
-    {"date":"2026-09-23","presenter":"Xandra","type":"Journal Club","title":"An expanded codebook of human transcription factor DNA-binding specificity"},
+    {"date":"2026-09-23","presenter":"Alexandra","type":"Journal Club","title":"An expanded codebook of human transcription factor DNA-binding specificity"},
     {"date":"2026-09-30","presenter":"Yash","type":"Progress Report","title":"Progress report"},
     {"date":"2026-10-07","presenter":"Everyone","type":"Lab Discussion","title":"Claude Science: Manuscripts"},
     {"date":"2026-10-14","presenter":"—","type":"No meeting","title":"No meeting scheduled"},
@@ -22,14 +22,14 @@
     {"title":"Intrinsic promoter responsiveness dictates sensitivity to transcriptional activation by enhancers","journal":"bioRxiv","url":"https://www.biorxiv.org/content/10.64898/2026.06.25.734173v1"}
   ],
   "projectMeetings": [
-    {"time":"9:30 AM","person":"Stas"},{"time":"10:00 AM","person":"Di"},{"time":"10:30 AM","person":"Xandra"},{"time":"11:00 AM","person":"Jaya"},{"time":"11:30 AM","person":"Gaetano"}
+    {"time":"9:30 AM","person":"Stas"},{"time":"10:00 AM","person":"Di"},{"time":"10:30 AM","person":"Alexandra"},{"time":"11:00 AM","person":"Jaya"},{"time":"11:30 AM","person":"Gaetano"}
   ],
   "people": [
     {"name":"Di Huang","role":"Staff Scientist","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/DiHuang.png"},
     {"name":"Jaya Srivastava","role":"Postdoctoral Fellow","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/jaya.jpg"},
     {"name":"Gaetano Manzo","role":"Staff Scientist","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/gaetano.jpg"},
     {"name":"Stas Listopad","role":"Postdoctoral Fellow","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/person.jpg"},
-    {"name":"Xandra Richey","role":"Postdoctoral Fellow","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/person.jpg"},
+    {"name":"Alexandra Richey","role":"Postdoctoral Fellow","photo":"assets/alexandra-richey.png"},
     {"name":"Yash Maheshwaran","role":"Predoctoral Fellow","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/person.jpg"},
     {"name":"Ivan Tarbeev","role":"Postbaccalaureate Fellow","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/person.jpg"},
     {"name":"Elline Krim","role":"Graduate Student","photo":"https://www.ncbi.nlm.nih.gov/CBBresearch/Ovcharenko/images/person.jpg"},
