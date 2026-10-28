@@ -92,8 +92,10 @@ function render() {
   $("#project-list").innerHTML = content.projectMeetings.map((item) => `<div class="project-row"><strong>${item.time}</strong><span>${item.person}</span></div>`).join("");
   $("#people-grid").innerHTML = content.people.map((person) => {
     const initials = person.name.split(" ").map((part) => part[0]).join("").slice(0, 2);
+    const localPhotos = { "Alexandra Richey": "assets/alexandra-richey.png", "Ivan Ovcharenko": "assets/ivan-ovcharenko.png" };
+    const photo = localPhotos[person.name] || person.photo;
     return `<article class="person">
-      <div class="person-photo-wrap"><img class="person-photo" src="${person.photo}" alt="${person.name}" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false" /><span class="person-avatar" hidden>${initials}</span></div>
+      <div class="person-photo-wrap"><img class="person-photo" src="${photo}" alt="${person.name}" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false" /><span class="person-avatar" hidden>${initials}</span></div>
       <div class="person-details"><strong>${person.name}</strong><small>${person.role}</small></div>
     </article>`;
   }).join("");
