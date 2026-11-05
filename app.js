@@ -49,41 +49,53 @@ function renderMeetings() {
   $("#show-all-meetings").innerHTML = showingAll ? "Show fewer <span>↑</span>" : "Show full schedule <span>↓</span>";
 }
 
+const escapeHTML = (value = "") => String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+
+const presenterInitials = (presenter = "") => presenter
+  .split(/[\s&]+/)
+  .filter(Boolean)
+  .map((part) => part[0])
+  .join("")
+  .slice(0, 2)
+  .toUpperCase();
+
 function renderNextMeeting() {
   const today = localISODate();
-  const next = [...content.meetings]
-    .sort((a, b) => a.date.localeCompare(b.date))
-    .find((meeting) => meeting.date >= today);
+  const sorted = [...content.meetings].sort((a, b) => a.date.localeCompare(b.date));
+  const nextDate = sorted.find((meeting) => meeting.date >= today)?.date;
+  const sessions = sorted.filter((meeting) => meeting.date === nextDate);
+  const list = $("#next-presentations");
 
-  if (!next) {
+  if (!nextDate) {
     $("#next-date-chip").textContent = "TBD";
     $("#next-meeting-time").textContent = "New schedule coming soon";
-    $("#next-meeting-title").textContent = "Nothing scheduled";
-    $("#next-paper-title").textContent = "Add the next meeting in the wiki editor.";
-    $("#next-presenter").textContent = "—";
-    $("#next-avatar").textContent = "—";
+    list.classList.remove("is-multiple");
+    list.innerHTML = `<div class="next-presentation"><h2>Nothing scheduled</h2><p class="paper-title">Add the next meeting in the wiki editor.</p></div>`;
     $("#next-location-footer").hidden = true;
     return;
   }
 
-  const initials = next.presenter
-    .split(/[\s&]+/)
-    .filter(Boolean)
-    .map((part) => part[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-  $("#next-date-chip").textContent = formatDate(next.date).chip;
-  $("#next-meeting-time").textContent = `${formatDate(next.date).day} · 10:00 AM`;
-  const showTitle = next.title && next.title.trim().toLowerCase() !== next.type.trim().toLowerCase();
-  $("#next-paper-title").textContent = showTitle ? next.title : "";
-  $("#next-paper-title").hidden = !showTitle;
-  $("#next-presenter").textContent = next.presenter;
-  $("#next-meeting-title").textContent = next.type;
-  $("#next-avatar").textContent = initials || "—";
-  const hasLocation = next.type.toLowerCase() !== "no meeting";
+  $("#next-date-chip").textContent = formatDate(nextDate).chip;
+  $("#next-meeting-time").textContent = `${formatDate(nextDate).day} · 10:00 AM`;
+  list.classList.toggle("is-multiple", sessions.length > 1);
+  list.innerHTML = sessions.map((meeting) => {
+    const showTitle = meeting.title && meeting.title.trim().toLowerCase() !== meeting.type.trim().toLowerCase();
+    const title = meeting.url
+      ? `<a href="${escapeHTML(meeting.url)}" target="_blank" rel="noopener">${escapeHTML(meeting.title)} ↗</a>`
+      : escapeHTML(meeting.title);
+    return `<div class="next-presentation">
+      <h2>${escapeHTML(meeting.type)}</h2>
+      ${showTitle ? `<p class="paper-title">${title}</p>` : ""}
+      <div class="presenter-row">
+        <span class="avatar">${escapeHTML(presenterInitials(meeting.presenter) || "—")}</span>
+        <div><small>Presented by</small><strong>${escapeHTML(meeting.presenter)}</strong></div>
+      </div>
+    </div>`;
+  }).join("");
+
+  const hasLocation = sessions.some((meeting) => meeting.type.toLowerCase() !== "no meeting");
   $("#next-location-footer").hidden = !hasLocation;
-  $("#next-location").textContent = next.location || "8th-floor conference room";
+  $("#next-location").textContent = sessions.find((meeting) => meeting.location)?.location || "8th-floor conference room";
 }
 
 function render() {

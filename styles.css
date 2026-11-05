@@ -70,6 +70,11 @@ kbd { padding: 1px 6px; background: #e5e4dc; border: 1px solid #d3d3ca; border-r
 .meeting-time { margin: 0 0 7px; color: #b8cfcb; font-size: 13px; }
 .next-card h2 { margin: 0; font: 800 27px/1.2 Manrope, sans-serif; }
 .paper-title { margin: 14px 0 23px; color: #c8d9d6; font-size: 14px; line-height: 1.55; }
+.paper-title a { color: inherit; text-decoration: underline; text-decoration-color: rgba(255,255,255,.3); text-underline-offset: 3px; }
+.paper-title a:hover { color: white; }
+.next-presentation + .next-presentation { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.13); }
+.next-presentations.is-multiple h2 { font-size: 22px; }
+.next-presentations.is-multiple .paper-title { margin: 9px 0 14px; font-size: 13px; }
 .presenter-row { display: flex; align-items: center; gap: 11px; }
 .avatar { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; background: var(--coral); color: white; font-size: 11px; font-weight: 800; }
 .presenter-row small, .presenter-row strong { display: block; }

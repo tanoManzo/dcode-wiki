@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=9" />
+    <link rel="stylesheet" href="styles.css?v=10" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -52,20 +52,15 @@
               <a class="primary-button" href="#meetings">See the schedule <span aria-hidden="true">↓</span></a>
             </div>
           </div>
-          <aside class="next-card" aria-labelledby="next-meeting-title">
+          <aside class="next-card" aria-labelledby="next-card-label">
             <div class="next-card-top">
               <span class="live-dot"></span>
-              <span>Next group meeting</span>
-              <span class="date-chip" id="next-date-chip">OCT 28</span>
+              <span id="next-card-label">Next group meeting</span>
+              <span class="date-chip" id="next-date-chip">—</span>
             </div>
             <div class="next-card-body">
-              <p class="meeting-time" id="next-meeting-time">Wednesday · 10:00 AM</p>
-              <h2 id="next-meeting-title">Journal Club</h2>
-              <p class="paper-title" id="next-paper-title">Functional dissection of complex trait variants at single-nucleotide resolution</p>
-              <div class="presenter-row">
-                <span class="avatar" id="next-avatar">DH</span>
-                <div><small>Presented by</small><strong id="next-presenter">Di</strong></div>
-              </div>
+              <p class="meeting-time" id="next-meeting-time">Loading schedule…</p>
+              <div class="next-presentations" id="next-presentations"></div>
             </div>
             <div class="next-card-footer" id="next-location-footer">
               <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5 7-12a7 7 0 1 0-14 0c0 7 7 12 7 12Z"/><circle cx="12" cy="9" r="2.2"/></svg><span id="next-location">8th-floor conference room</span></span>
@@ -133,6 +128,6 @@
       </div>
       <div class="search-results" id="search-results"><p>Start typing to search across the wiki.</p></div>
     </dialog>
-    <script src="app.js?v=11" defer></script>
+    <script src="app.js?v=12" defer></script>
   </body>
 </html>
