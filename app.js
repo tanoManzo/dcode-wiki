@@ -83,7 +83,7 @@ function renderNextMeeting() {
   $("#next-avatar").textContent = initials || "—";
   const hasLocation = next.type.toLowerCase() !== "no meeting";
   $("#next-location-footer").hidden = !hasLocation;
-  $("#next-location").textContent = next.location || "6th floor conference room";
+  $("#next-location").textContent = next.location || "8th-floor conference room";
 }
 
 function render() {
